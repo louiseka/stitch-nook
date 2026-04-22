@@ -3,7 +3,6 @@ import AuthForm from './components/AuthForm.jsx';
 import PatternList from './components/PatternList.jsx';
 import PatternDetail from './components/PatternDetail.jsx';
 import PatternForm from './components/PatternForm.jsx';
-import TermToggle from './components/TermToggle.jsx';
 import styles from './styles/App.module.css';
 
 function loadUser() {
@@ -17,8 +16,7 @@ function loadUser() {
 
 export default function App() {
   const [user, setUser] = useState(loadUser);
-  const [termMode, setTermMode] = useState('us');
-  const [selectedId, setSelectedId] = useState(null);
+const [selectedId, setSelectedId] = useState(null);
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [refresh, setRefresh] = useState(0);
@@ -61,7 +59,6 @@ export default function App() {
           <h1 className={styles.title}>The Stitch Nook</h1>
         </div>
         <div className={styles.headerRight}>
-          <TermToggle mode={termMode} onChange={setTermMode} />
           {user ? (
             <div className={styles.userBar}>
               <span className={styles.username}>{user.username}</span>
@@ -95,8 +92,7 @@ export default function App() {
       {selectedId && (
         <PatternDetail
           id={selectedId}
-          termMode={termMode}
-          user={user}
+user={user}
           onClose={() => setSelectedId(null)}
           onEdit={handleEdit}
           onDeleted={handleDeleted}

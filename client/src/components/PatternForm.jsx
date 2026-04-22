@@ -3,6 +3,17 @@ import { api } from '../api.js';
 import RichTextEditor from './RichTextEditor.jsx';
 import styles from '../styles/PatternForm.module.css';
 
+const HOOK_SIZES = [
+  '2.0mm','2.5mm','3.0mm','3.5mm','4.0mm','4.5mm',
+  '5.0mm','5.5mm','6.0mm','6.5mm','7.0mm','8.0mm',
+  '9.0mm','10.0mm','12.0mm','15.0mm',
+];
+
+const YARN_WEIGHTS = [
+  'Lace','Fingering / 4 ply','Sport / 5 ply','DK / 8 ply',
+  'Aran / 10 ply','Worsted','Chunky','Super Chunky','Jumbo',
+];
+
 const EMPTY = {
   title: '',
   author: '',
@@ -95,11 +106,17 @@ export default function PatternForm({ editId, onSaved, onClose }) {
             <legend className={styles.legend}>Materials *</legend>
             <label className={styles.label}>
               Hook Size
-              <input className={styles.input} type="text" placeholder="e.g. 4mm" value={fields.hookSize} onChange={set('hookSize')} required autoComplete="off" />
+              <select className={styles.input} value={fields.hookSize} onChange={set('hookSize')} required>
+                <option value="">— select —</option>
+                {HOOK_SIZES.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
             </label>
             <label className={styles.label}>
               Yarn Weight
-              <input className={styles.input} type="text" placeholder="e.g. DK, Aran, Chunky" value={fields.yarnWeight} onChange={set('yarnWeight')} required autoComplete="off" />
+              <select className={styles.input} value={fields.yarnWeight} onChange={set('yarnWeight')} required>
+                <option value="">— select —</option>
+                {YARN_WEIGHTS.map(w => <option key={w} value={w}>{w}</option>)}
+              </select>
             </label>
             <label className={styles.label}>
               Yarn Colours
@@ -113,23 +130,13 @@ export default function PatternForm({ editId, onSaved, onClose }) {
               <span className={styles.hint}>Which terms are you using?</span>
               <div className={styles.radioGroup}>
                 <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    name="instruction_terms"
-                    value="us"
-                    checked={fields.instruction_terms === 'us'}
-                    onChange={set('instruction_terms')}
-                  />
+                  <input type="radio" name="instruction_terms" value="us"
+                    checked={fields.instruction_terms === 'us'} onChange={set('instruction_terms')} />
                   US terms
                 </label>
                 <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    name="instruction_terms"
-                    value="uk"
-                    checked={fields.instruction_terms === 'uk'}
-                    onChange={set('instruction_terms')}
-                  />
+                  <input type="radio" name="instruction_terms" value="uk"
+                    checked={fields.instruction_terms === 'uk'} onChange={set('instruction_terms')} />
                   UK terms
                 </label>
               </div>

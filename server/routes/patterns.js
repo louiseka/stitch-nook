@@ -17,7 +17,7 @@ function parseMaterials(raw) {
 router.get('/', async (req, res) => {
   try {
     const { rows } = await db.execute(`
-      SELECT p.id, p.user_id, p.title, p.author, p.difficulty, p.description, p.materials, p.created_at, u.username
+      SELECT p.id, p.user_id, p.title, p.author, p.difficulty, p.description, p.materials, p.instruction_terms, p.created_at, u.username
       FROM patterns p
       JOIN users u ON p.user_id = u.id
       ORDER BY p.created_at DESC

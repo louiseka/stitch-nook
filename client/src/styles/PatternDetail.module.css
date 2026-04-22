@@ -99,15 +99,24 @@
   gap: 0.5rem;
 }
 
+
 .termBadge {
   font-size: 0.7rem;
-  background: #e8f4fd;
-  color: #1565c0;
   border-radius: 20px;
   padding: 0.1rem 0.5rem;
   text-transform: none;
   letter-spacing: 0;
   font-weight: 600;
+}
+
+.termBadge.us {
+  background: #e8f4fd;
+  color: #1565c0;
+}
+
+.termBadge.uk {
+  background: #fce8f3;
+  color: #880e4f;
 }
 
 .instructions {

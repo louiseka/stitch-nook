@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { api } from '../api.js';
-import { convertInstructions } from '../conversion.js';
 import styles from '../styles/PatternDetail.module.css';
 
 const DIFFICULTY_LABEL = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 
-export default function PatternDetail({ id, termMode, user, onClose, onEdit, onDeleted }) {
+export default function PatternDetail({ id, user, onClose, onEdit, onDeleted }) {
   const [pattern, setPattern] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -80,13 +79,15 @@ export default function PatternDetail({ id, termMode, user, onClose, onEdit, onD
             <div className={styles.section}>
               <h3 className={styles.sectionTitle}>
                 Instructions
-                {termMode === 'uk' && <span className={styles.termBadge}>UK terms</span>}
+                {pattern.instruction_terms && (
+                  <span className={`${styles.termBadge} ${styles[pattern.instruction_terms]}`}>
+                    {pattern.instruction_terms.toUpperCase()} terms
+                  </span>
+                )}
               </h3>
               <div
                 className={styles.instructions}
-                dangerouslySetInnerHTML={{
-                  __html: convertInstructions(pattern.instructions, pattern.instruction_terms, termMode),
-                }}
+                dangerouslySetInnerHTML={{ __html: pattern.instructions }}
               />
             </div>
 
