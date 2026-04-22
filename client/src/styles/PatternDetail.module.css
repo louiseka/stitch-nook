@@ -1,0 +1,222 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.modal {
+  background: var(--clr-surface);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 680px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--clr-muted);
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+}
+
+.closeBtn:hover {
+  color: var(--clr-text);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-primary-dark);
+  flex: 1;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: white;
+  margin-top: 0.3rem;
+}
+
+.beginner { background: var(--clr-beginner); }
+.intermediate { background: var(--clr-intermediate); }
+.advanced { background: var(--clr-advanced); }
+
+.author {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--clr-text);
+  margin-bottom: 1rem;
+}
+
+.section {
+  margin-top: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clr-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.termBadge {
+  font-size: 0.7rem;
+  background: #e8f4fd;
+  color: #1565c0;
+  border-radius: 20px;
+  padding: 0.1rem 0.5rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.instructions {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.instructions p {
+  margin: 0 0 0.5rem;
+}
+
+.instructions p:last-child {
+  margin-bottom: 0;
+}
+
+.instructions h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-primary-dark);
+  margin: 1rem 0 0.35rem;
+}
+
+.instructions h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.instructions ul,
+.instructions ol {
+  padding-left: 1.4rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.instructions li {
+  margin-bottom: 0.2rem;
+}
+
+.instructions strong {
+  font-weight: 700;
+}
+
+.instructions em {
+  font-style: italic;
+}
+
+.materialsList {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem 1rem;
+  margin: 0;
+}
+
+.materialsTerm {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+}
+
+.materialsDetail {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  margin: 0;
+}
+
+.ownerActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--clr-border);
+  justify-content: flex-end;
+}
+
+.editBtn,
+.deleteBtn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.editBtn {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text);
+}
+
+.editBtn:hover { background: var(--clr-border); }
+
+.deleteBtn {
+  background: #fdecea;
+  color: var(--clr-danger);
+}
+
+.deleteBtn:hover { background: #f5c6c2; }
+
+.status,
+.error {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--clr-muted);
+}
+
+.error { color: var(--clr-danger); }

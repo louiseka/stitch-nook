@@ -1,0 +1,16 @@
+{
+  "name": "crochet-server",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "@libsql/client": "^0.14.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

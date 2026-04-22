@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3001/api/patterns)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(pkill -f \"concurrently\")",
+      "Bash(pkill -f \"node --watch\")",
+      "Bash(pkill -f \"vite\")",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+}
+
+.heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--clr-primary-dark);
+  margin-bottom: 1.25rem;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--clr-border);
+  margin-bottom: 1.5rem;
+}
+
+.tab,
+.tabActive {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tabActive {
+  color: var(--clr-primary);
+  border-bottom-color: var(--clr-primary);
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.input {
+  border: 1px solid var(--clr-border);
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--clr-bg);
+}
+
+.input:focus {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 0;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: block;
+}
+
+.passwordWrapper .input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.showPasswordBtn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  color: var(--clr-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showPasswordBtn:hover {
+  color: var(--clr-text);
+}
+
+
+
+.error {
+  color: var(--clr-danger);
+  font-size: 0.875rem;
+}
+
+.submit {
+  background: var(--clr-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--clr-primary-dark);
+}
+
+.passwordReqs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.6rem 0.75rem;
+  background: #faf8f6;
+  border: 1px solid var(--clr-border);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  margin: -0.5rem 0 0.5rem 0;
+}
+
+.metReq {
+  color: var(--clr-beginner);
+  font-weight: 500;
+}
+
+.unmetReq {
+  color: var(--clr-muted);
+}
+
+.usernameAvailable {
+  font-size: 0.82rem;
+  color: var(--clr-beginner);
+  font-weight: 500;
+  padding: 0.6rem 0.75rem;
+  background: #f1f8f4;
+  border: 1px solid var(--clr-beginner);
+  border-radius: 6px;
+  margin: -0.5rem 0 0.5rem 0;
+}
+
+.usernameTaken {
+  font-size: 0.82rem;
+  color: var(--clr-danger);
+  font-weight: 500;
+  padding: 0.6rem 0.75rem;
+  background: #fdecea;
+  border: 1px solid var(--clr-danger);
+  border-radius: 6px;
+  margin: -0.5rem 0 0.5rem 0;
+}

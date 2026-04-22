@@ -1,0 +1,105 @@
+.wrapper {
+  border: 1px solid var(--clr-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--clr-bg);
+}
+
+.wrapper:focus-within {
+  outline: 2px solid var(--clr-primary);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  flex-wrap: wrap;
+}
+
+.toolBtn {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  color: var(--clr-text);
+  cursor: pointer;
+  line-height: 1.4;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.toolBtn:hover {
+  background: var(--clr-bg);
+  border-color: var(--clr-border);
+}
+
+.toolBtn.active {
+  background: var(--clr-primary);
+  color: white;
+  border-color: var(--clr-primary);
+}
+
+.divider {
+  width: 1px;
+  height: 1.2rem;
+  background: var(--clr-border);
+  margin: 0 0.2rem;
+}
+
+/* The actual editable area */
+.editorContent {
+  padding: 0.75rem;
+}
+
+.editorContent :global(.tiptap) {
+  min-height: 180px;
+  outline: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  line-height: 1.7;
+  color: var(--clr-text);
+}
+
+.editorContent :global(.tiptap p) {
+  margin: 0 0 0.5rem;
+}
+
+.editorContent :global(.tiptap p:last-child) {
+  margin-bottom: 0;
+}
+
+.editorContent :global(.tiptap h2) {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-primary-dark);
+  margin: 1rem 0 0.35rem;
+}
+
+.editorContent :global(.tiptap h3) {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.editorContent :global(.tiptap ul),
+.editorContent :global(.tiptap ol) {
+  padding-left: 1.4rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.editorContent :global(.tiptap li) {
+  margin-bottom: 0.2rem;
+}
+
+.editorContent :global(.tiptap strong) {
+  font-weight: 700;
+}
+
+.editorContent :global(.tiptap em) {
+  font-style: italic;
+}
