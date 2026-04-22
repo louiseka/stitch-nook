@@ -35,8 +35,8 @@ A cosy community pattern library for crochet lovers. Browse freely, log in to sh
 
 ```bash
 # Clone the repo
-git clone https://github.com/louiseka/the-stitch-nook.git
-cd the-stitch-nook
+git clone https://github.com/louiseka/stitch-nook.git
+cd stitch-nook
 
 # Install all dependencies (client + server)
 npm install
