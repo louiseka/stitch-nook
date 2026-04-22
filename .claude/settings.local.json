@@ -8,7 +8,9 @@
       "Bash(pkill -f \"concurrently\")",
       "Bash(pkill -f \"node --watch\")",
       "Bash(pkill -f \"vite\")",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node server/seed.js)",
+      "Bash(node -e ' *)"
     ]
   }
 }
