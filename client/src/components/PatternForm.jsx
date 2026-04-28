@@ -24,15 +24,18 @@ const EMPTY = {
   yarnColours: '',
   instructions: '',
   instruction_terms: 'us',
+  image_url: '',
 };
 
 export default function PatternForm({ editId, onSaved, onClose }) {
   const [fields, setFields] = useState(EMPTY);
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (!editId) { setFields(EMPTY); return; }
+    if (!editId) { setFields(EMPTY); setImageFile(null); setImagePreview(''); return; }
     api.getPattern(editId).then(p => {
       setFields({
         title: p.title || '',
@@ -44,7 +47,9 @@ export default function PatternForm({ editId, onSaved, onClose }) {
         yarnColours: p.yarnColours || '',
         instructions: p.instructions || '',
         instruction_terms: p.instruction_terms || 'us',
+        image_url: p.image_url || '',
       });
+      setImagePreview(p.image_url || '');
     });
   }, [editId]);
 
@@ -52,15 +57,33 @@ export default function PatternForm({ editId, onSaved, onClose }) {
     return e => setFields(f => ({ ...f, [key]: e.target.value }));
   }
 
+  function handleImageChange(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+  }
+
+  function removeImage() {
+    setImageFile(null);
+    setImagePreview('');
+    setFields(f => ({ ...f, image_url: '' }));
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
     setLoading(true);
     try {
+      let finalFields = { ...fields };
+      if (imageFile) {
+        const { url } = await api.uploadImage(imageFile);
+        finalFields.image_url = url;
+      }
       if (editId) {
-        await api.updatePattern(editId, fields);
+        await api.updatePattern(editId, finalFields);
       } else {
-        await api.createPattern(fields);
+        await api.createPattern(finalFields);
       }
       onSaved();
     } catch (err) {
@@ -101,6 +124,23 @@ export default function PatternForm({ editId, onSaved, onClose }) {
             Description *
             <textarea className={styles.input} rows={2} value={fields.description} onChange={set('description')} required />
           </label>
+
+          <div className={styles.label}>
+            Finished Project Photo
+            {imagePreview ? (
+              <div className={styles.imagePreviewWrap}>
+                <img src={imagePreview} alt="Preview" className={styles.imagePreview} />
+                <button type="button" className={styles.removeImageBtn} onClick={removeImage}>
+                  <i className="fa-solid fa-xmark" /> Remove
+                </button>
+              </div>
+            ) : (
+              <label className={styles.uploadLabel}>
+                <i className="fa-solid fa-image" /> Choose image
+                <input type="file" accept="image/*" onChange={handleImageChange} className={styles.hiddenFileInput} />
+              </label>
+            )}
+          </div>
 
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>Materials *</legend>

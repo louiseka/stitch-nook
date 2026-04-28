@@ -100,6 +100,66 @@
   outline-offset: 0;
 }
 
+.uploadLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: 1px dashed var(--clr-border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+  cursor: pointer;
+  background: var(--clr-bg);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.uploadLabel:hover {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.imagePreviewWrap {
+  position: relative;
+  margin-top: 0.4rem;
+  display: inline-block;
+}
+
+.imagePreview {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--clr-border);
+}
+
+.removeImageBtn {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.removeImageBtn:hover {
+  background: rgba(0,0,0,0.75);
+}
+
 .fieldset {
   border: 1px solid var(--clr-border);
   border-radius: 6px;

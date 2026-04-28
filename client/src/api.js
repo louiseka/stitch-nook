@@ -33,6 +33,14 @@ export const api = {
       body: JSON.stringify(body),
     }),
   deletePattern: (id) => request(`/api/patterns/${id}`, { method: "DELETE" }),
+  uploadImage: async (file) => {
+    const form = new FormData();
+    form.append('image', file);
+    const res = await fetch('/api/upload', { method: 'POST', headers: authHeaders(), body: form });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Upload failed');
+    return data;
+  },
   register: (body) =>
     request("/api/auth/register", {
       method: "POST",

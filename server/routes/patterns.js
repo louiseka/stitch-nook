@@ -17,7 +17,7 @@ function parseMaterials(raw) {
 router.get('/', async (req, res) => {
   try {
     const { rows } = await db.execute(`
-      SELECT p.id, p.user_id, p.title, p.author, p.difficulty, p.description, p.materials, p.instruction_terms, p.created_at, u.username
+      SELECT p.id, p.user_id, p.title, p.author, p.difficulty, p.description, p.materials, p.instruction_terms, p.image_url, p.created_at, u.username
       FROM patterns p
       JOIN users u ON p.user_id = u.id
       ORDER BY p.created_at DESC
@@ -44,16 +44,16 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', requireAuth, async (req, res) => {
-  const { title, author, difficulty, description, instructions, instruction_terms, hookSize, yarnWeight, yarnColours } = req.body;
+  const { title, author, difficulty, description, instructions, instruction_terms, hookSize, yarnWeight, yarnColours, image_url } = req.body;
   if (!title || !instructions || !difficulty || !description || !hookSize || !yarnWeight || !yarnColours) {
     return res.status(400).json({ error: 'Pattern name, difficulty, description, materials and instructions are required' });
   }
   const materials = JSON.stringify({ hookSize, yarnWeight, yarnColours });
   try {
     const result = await db.execute({
-      sql: `INSERT INTO patterns (user_id, title, author, difficulty, description, instructions, instruction_terms, materials)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-      args: [req.user.id, title, author || null, difficulty, description, instructions, instruction_terms || 'us', materials],
+      sql: `INSERT INTO patterns (user_id, title, author, difficulty, description, instructions, instruction_terms, materials, image_url)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      args: [req.user.id, title, author || null, difficulty, description, instructions, instruction_terms || 'us', materials, image_url || null],
     });
     const { rows } = await db.execute({
       sql: `SELECT p.*, u.username FROM patterns p JOIN users u ON p.user_id = u.id WHERE p.id = ?`,
@@ -73,15 +73,15 @@ router.put('/:id', requireAuth, async (req, res) => {
     if (!existing[0]) return res.status(404).json({ error: 'Pattern not found' });
     if (Number(existing[0].user_id) !== req.user.id) return res.status(403).json({ error: 'Not your pattern' });
 
-    const { title, author, difficulty, description, instructions, instruction_terms, hookSize, yarnWeight, yarnColours } = req.body;
+    const { title, author, difficulty, description, instructions, instruction_terms, hookSize, yarnWeight, yarnColours, image_url } = req.body;
     if (!title || !instructions || !difficulty || !description || !hookSize || !yarnWeight || !yarnColours) {
       return res.status(400).json({ error: 'Pattern name, difficulty, description, materials and instructions are required' });
     }
     const materials = JSON.stringify({ hookSize, yarnWeight, yarnColours });
 
     await db.execute({
-      sql: `UPDATE patterns SET title=?, author=?, difficulty=?, description=?, instructions=?, instruction_terms=?, materials=?, updated_at=datetime('now') WHERE id=?`,
-      args: [title, author || null, difficulty, description, instructions, instruction_terms || 'us', materials, req.params.id],
+      sql: `UPDATE patterns SET title=?, author=?, difficulty=?, description=?, instructions=?, instruction_terms=?, materials=?, image_url=?, updated_at=datetime('now') WHERE id=?`,
+      args: [title, author || null, difficulty, description, instructions, instruction_terms || 'us', materials, image_url ?? existing[0].image_url ?? null, req.params.id],
     });
 
     const { rows } = await db.execute({

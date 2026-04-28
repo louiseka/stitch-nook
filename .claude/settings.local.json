@@ -10,7 +10,20 @@
       "Bash(pkill -f \"vite\")",
       "mcp__Claude_Preview__preview_start",
       "Bash(node server/seed.js)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1602176354006-a5e86bdeb50f?w=800&q=80\" -o granny-square.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1584836876018-9dd0f7e07db3?w=800&q=80\" -o spring-blanket.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1591101761703-d15ccc7e9f14?w=800&q=80\" -o bobble-blanket.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80\" -o amigurumi-bunny.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1580743942083-bcaf01f2acca?w=800&q=80\" -o ripple-afghan.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=800&q=80\" -o flower-coasters.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1617330411349-efaf3b8bae3a?w=800&q=80\" -o granny-square.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1571173580416-da5fbd0ee39a?w=800&q=80\" -o spring-blanket.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1615486511262-c7b496948e0a?w=800&q=80\" -o bobble-blanket.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80\" -o ripple-afghan.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80\" -o granny-square.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1582578598774-a377d4b32223?w=800&q=80\" -o spring-blanket.jpg)",
+      "Bash(curl -Ls \"https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80\" -o bobble-blanket.jpg)"
     ]
   }
 }

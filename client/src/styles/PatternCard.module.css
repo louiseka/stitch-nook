@@ -11,6 +11,15 @@
   gap: 0.4rem;
 }
 
+.cardImage {
+  width: calc(100% + 2.5rem);
+  margin: -1.25rem -1.25rem 0.75rem;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+  display: block;
+}
+
 .card:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   transform: translateY(-2px);

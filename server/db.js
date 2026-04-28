@@ -31,10 +31,11 @@ async function initDb() {
   ], 'write');
 
   // Add columns for databases that existed before this migration
-  try {
-    await db.execute(`ALTER TABLE patterns ADD COLUMN instruction_terms TEXT DEFAULT 'us'`);
-  } catch {
-    // Column already exists — safe to ignore
+  for (const ddl of [
+    `ALTER TABLE patterns ADD COLUMN instruction_terms TEXT DEFAULT 'us'`,
+    `ALTER TABLE patterns ADD COLUMN image_url TEXT`,
+  ]) {
+    try { await db.execute(ddl); } catch { /* column already exists */ }
   }
 }
 

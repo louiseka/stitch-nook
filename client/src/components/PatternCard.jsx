@@ -19,6 +19,9 @@ export default function PatternCard({ pattern, user, onSelect, onEdit, onDeleted
 
   return (
     <div className={styles.card} onClick={() => onSelect(pattern.id)}>
+      {pattern.image_url && (
+        <img src={pattern.image_url} alt={pattern.title} className={styles.cardImage} />
+      )}
       <div className={styles.cardTop}>
         <h3 className={styles.cardTitle}>{pattern.title}</h3>
         {pattern.difficulty && (

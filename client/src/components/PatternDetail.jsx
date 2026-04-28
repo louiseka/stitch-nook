@@ -48,6 +48,10 @@ export default function PatternDetail({ id, user, onClose, onEdit, onDeleted }) 
               )}
             </div>
 
+            {pattern.image_url && (
+              <img src={pattern.image_url} alt={pattern.title} className={styles.patternImage} />
+            )}
+
             {pattern.author && <p className={styles.author}>by {pattern.author}</p>}
 
             <p className={styles.meta}>
