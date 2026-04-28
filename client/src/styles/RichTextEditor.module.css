@@ -39,7 +39,7 @@
 
 .toolBtn.active {
   background: var(--clr-primary);
-  color: white;
+  color: var(--clr-primary-dark);
   border-color: var(--clr-primary);
 }
 

@@ -113,9 +113,9 @@
 
 .submit {
   background: var(--clr-primary);
-  color: white;
+  color: var(--clr-primary-dark);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius);
   padding: 0.65rem;
   font-size: 1rem;
   font-weight: 600;
@@ -124,6 +124,7 @@
 
 .submit:hover:not(:disabled) {
   background: var(--clr-primary-dark);
+  color: #ffffff;
 }
 
 .passwordReqs {

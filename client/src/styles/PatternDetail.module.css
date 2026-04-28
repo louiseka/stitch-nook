@@ -118,13 +118,13 @@
 }
 
 .termBadge.us {
-  background: #e8f4fd;
-  color: #1565c0;
+  background: #dedbd2;
+  color: var(--clr-primary-dark);
 }
 
 .termBadge.uk {
-  background: #fce8f3;
-  color: #880e4f;
+  background: var(--clr-primary);
+  color: var(--clr-primary-dark);
 }
 
 .instructions {

@@ -53,16 +53,18 @@
 }
 
 .logoutBtn {
-  background: none;
-  border: 1px solid var(--clr-border);
-  border-radius: 6px;
+  background: var(--clr-primary);
+  color: var(--clr-primary-dark);
+  border: none;
+  border-radius: var(--radius);
   padding: 0.3rem 0.75rem;
   font-size: 0.85rem;
-  color: var(--clr-muted);
+  font-weight: 600;
 }
 
 .logoutBtn:hover {
-  background: var(--clr-bg);
+  background: var(--clr-primary-dark);
+  color: #ffffff;
 }
 
 .main {
@@ -81,7 +83,7 @@
 
 .addBtn {
   background: var(--clr-primary);
-  color: white;
+  color: var(--clr-primary-dark);
   border: none;
   border-radius: var(--radius);
   padding: 0.55rem 1.2rem;
@@ -91,4 +93,5 @@
 
 .addBtn:hover {
   background: var(--clr-primary-dark);
+  color: #ffffff;
 }

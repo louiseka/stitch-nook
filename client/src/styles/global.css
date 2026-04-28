@@ -5,19 +5,20 @@
 }
 
 :root {
-  --clr-bg: #fdf6f0;
+  /* Cherry Blossom palette */
+  --clr-bg: #f7e1d7;        /* Powder Petal */
   --clr-surface: #ffffff;
-  --clr-border: #e8ddd5;
-  --clr-primary: #b5651d;
-  --clr-primary-dark: #8b4513;
-  --clr-text: #2d1f14;
-  --clr-muted: #7a6050;
-  --clr-danger: #c0392b;
-  --clr-beginner: #2e7d32;
-  --clr-intermediate: #e65100;
-  --clr-advanced: #6a1b9a;
+  --clr-border: #dedbd2;    /* Dust Grey */
+  --clr-primary: #edafb8;   /* Cherry Blossom */
+  --clr-primary-dark: #4a5759; /* Iron Grey */
+  --clr-text: #4a5759;      /* Iron Grey */
+  --clr-muted: #4a5759;     /* Iron Grey — matches headings for contrast */
+  --clr-danger: #b05070;
+  --clr-beginner: #7a9e7e;
+  --clr-intermediate: #c47e8a;
+  --clr-advanced: #4a5759;
   --radius: 10px;
-  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow: 0 2px 8px rgba(74,87,89,0.1);
 }
 
 body {
