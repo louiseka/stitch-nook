@@ -39,8 +39,8 @@
 }
 
 .tabActive {
-  color: var(--clr-primary);
-  border-bottom-color: var(--clr-primary);
+  color: var(--clr-primary-dark);
+  border-bottom-color: var(--clr-primary-dark);
   font-weight: 600;
 }
 
@@ -65,7 +65,7 @@
   padding: 0.55rem 0.75rem;
   font-size: 0.95rem;
   font-family: inherit;
-  background: var(--clr-bg);
+  background: var(--clr-surface);
 }
 
 .input:focus {

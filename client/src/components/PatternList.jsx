@@ -80,50 +80,65 @@ export default function PatternList({ refresh, user, onSelect, onEdit, onDeleted
 
   return (
     <div>
+      <div className={styles.searchWrap}>
+        <i className={`fa-solid fa-magnifying-glass ${styles.searchIcon}`} />
+        <input
+          className={styles.searchInput}
+          type="search"
+          placeholder="Search patterns…"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
+
       <div className={styles.controls}>
-        <div className={styles.searchWrap}>
-          <i className={`fa-solid fa-magnifying-glass ${styles.searchIcon}`} />
-          <input
-            className={styles.searchInput}
-            type="search"
-            placeholder="Search patterns…"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
+        <div className={styles.filterGroup}>
+          <label className={styles.filterLabel} htmlFor="filter-difficulty">Difficulty</label>
+          <select id="filter-difficulty" className={styles.filterSelect} value={filterDifficulty} onChange={e => setFilterDifficulty(e.target.value)}>
+            <option value="">All</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
         </div>
 
-        <select className={styles.filterSelect} value={filterDifficulty} onChange={e => setFilterDifficulty(e.target.value)}>
-          <option value="">All difficulties</option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
-        </select>
+        <div className={styles.filterGroup}>
+          <label className={styles.filterLabel} htmlFor="filter-yarn-weight">Yarn Weight</label>
+          <select id="filter-yarn-weight" className={styles.filterSelect} value={filterYarnWeight} onChange={e => setFilterYarnWeight(e.target.value)}>
+            <option value="">All</option>
+            {YARN_WEIGHTS.map(w => <option key={w} value={w}>{w}</option>)}
+          </select>
+        </div>
 
-        <select className={styles.filterSelect} value={filterYarnWeight} onChange={e => setFilterYarnWeight(e.target.value)}>
-          <option value="">All yarn weights</option>
-          {YARN_WEIGHTS.map(w => <option key={w} value={w}>{w}</option>)}
-        </select>
+        <div className={styles.filterGroup}>
+          <label className={styles.filterLabel} htmlFor="filter-hook-size">Hook Size</label>
+          <select id="filter-hook-size" className={styles.filterSelect} value={filterHookSize} onChange={e => setFilterHookSize(e.target.value)}>
+            <option value="">All</option>
+            {HOOK_SIZES.map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
 
-        <select className={styles.filterSelect} value={filterHookSize} onChange={e => setFilterHookSize(e.target.value)}>
-          <option value="">All hook sizes</option>
-          {HOOK_SIZES.map(s => <option key={s} value={s}>{s}</option>)}
-        </select>
+        <div className={styles.filterGroup}>
+          <label className={styles.filterLabel} htmlFor="filter-terms">Terms</label>
+          <select id="filter-terms" className={styles.filterSelect} value={filterTerms} onChange={e => setFilterTerms(e.target.value)}>
+            <option value="">US &amp; UK</option>
+            <option value="us">US terms</option>
+            <option value="uk">UK terms</option>
+          </select>
+        </div>
 
-        <select className={styles.filterSelect} value={filterTerms} onChange={e => setFilterTerms(e.target.value)}>
-          <option value="">US &amp; UK terms</option>
-          <option value="us">US terms</option>
-          <option value="uk">UK terms</option>
-        </select>
-
-        <select className={styles.filterSelect} value={sortBy} onChange={e => setSortBy(e.target.value)}>
-          <option value="newest">Newest first</option>
-          <option value="az">A → Z</option>
-          <option value="za">Z → A</option>
-          <option value="difficulty">By difficulty</option>
-        </select>
+        <div className={styles.filterGroup}>
+          <label className={styles.filterLabel} htmlFor="filter-sort">Sort By</label>
+          <select id="filter-sort" className={styles.filterSelect} value={sortBy} onChange={e => setSortBy(e.target.value)}>
+            <option value="newest">Newest first</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="difficulty">By difficulty</option>
+          </select>
+        </div>
 
         {hasFilters && (
-          <button className={styles.clearBtn} onClick={clearFilters}>Clear</button>
+          <button className={styles.clearBtn} onClick={clearFilters}>Clear filters</button>
         )}
       </div>
 
